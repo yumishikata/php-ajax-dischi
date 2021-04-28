@@ -18,11 +18,14 @@ header img {
     height: auto;
 }
 
+
+
 main {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .card {

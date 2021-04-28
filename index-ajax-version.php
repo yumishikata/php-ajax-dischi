@@ -9,20 +9,28 @@
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <title>PHP AJAX Dischi </title>
 </head>
-<body>
+<body >
+
     <header>
         <img src="img/spotify.png" alt="">
     </header>
+    <div id="root">
+        <nav>
+            <select name="artist" id="artist" @change="changeArtist($event)">
+                <option value="All">All</option>
+                <option v-for="artist in arrayArtisti" :value="artist">{{artist}}</option>
+            </select>
+        </nav>
+        <main>
+            <div class="card" v-for="disco in arrayDischi" v-if="disco.author == selectedArtist || selectedArtist == 'All'">
+                <img :src="disco.poster" alt="">
+                <h3>  {{disco.title}}</h3>
+                <p>  {{disco.author}}</p>
+                <h3>  {{ disco.year }}</h3>
+            </div>
 
-    <main id="root">
-        <div class="card" v-for="disco in arrayDischi">
-            <img :src="disco.poster" alt="">
-            <h3>  {{disco.title}}</h3>
-            <p>  {{disco.author}}</p>
-            <h3>  {{ disco.year }}</h3>
-        </div>
-
-    </main>
+        </main>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
